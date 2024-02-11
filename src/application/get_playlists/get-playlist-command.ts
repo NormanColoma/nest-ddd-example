@@ -1,10 +1,12 @@
 import ApplicationCommand from '../../common/application/application-command';
 
 class GetPlaylistCommand implements ApplicationCommand {
-  public readonly genre: string;
+  public readonly fields: object;
 
   constructor(genre: string) {
-    this.genre = genre;
+    this.fields = {
+      genre,
+    };
   }
 }
 
