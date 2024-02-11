@@ -1,0 +1,10 @@
+node_modules
+.gitignore
+.git
+src/coverage
+src/test
+src/node_modules
+docker-compose.yml
+README.md
+.prettierrc
+.eslintrc.js

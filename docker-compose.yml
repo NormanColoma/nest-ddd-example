@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  api:
+    build: .
+    depends_on:
+      - mongo
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: run
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules/
+    command: npm run start:dev
+    networks:
+      - test
+  mongo:
+    image: mongo:5
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    networks:
+      - test
+networks:
+  test:
