@@ -6,9 +6,10 @@ import ApplicationCommand from '../../common/application/application-command';
 
 class GetPlaylists implements ApplicationService {
   execute(command: ApplicationCommand): ApplicationResponse {
+    const fields = command.getFields();
     const playlist = Playlist.create({
       name: 'test',
-      genre: command.fields['genre'],
+      genre: fields['genre'],
     });
 
     return GetPlaylistResponse.create(playlist);

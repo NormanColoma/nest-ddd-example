@@ -14,6 +14,7 @@ class GetPlaylistResponse implements ApplicationResponse {
     return {
       id: this.playlist.id,
       name: this.playlist.name,
+      genre: this.playlist.genre,
       favorite: this.playlist.favorite,
     };
   }

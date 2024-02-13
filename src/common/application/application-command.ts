@@ -1,5 +1,5 @@
 interface ApplicationCommand {
-  fields: object;
+  getFields(): object;
 }
 
 export default ApplicationCommand;
