@@ -8,9 +8,10 @@ export class PlaylistController {
   constructor(private readonly appService: GetPlaylists) {}
 
   @Get()
-  getHello(): object {
-    const command: GetPlaylistCommand = new GetPlaylistCommand('hip-hop');
-    const response: GetPlaylistResponse = this.appService.execute(command);
+  async getHello(): Promise<object> {
+    const command: GetPlaylistCommand = new GetPlaylistCommand('rap');
+    const response: GetPlaylistResponse =
+      await this.appService.execute(command);
     return response.toJson();
   }
 }

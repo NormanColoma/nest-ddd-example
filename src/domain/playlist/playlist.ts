@@ -31,6 +31,7 @@ class Playlist extends DomainEntity {
   }): Playlist {
     return new Playlist({ name, favorite, genre });
   }
+
   public get name(): string {
     return this._name;
   }
@@ -60,6 +61,7 @@ class Playlist extends DomainEntity {
       id: this.id,
       name: this.name,
       favorite: this.favorite,
+      genre: this.genre,
       createdAt: this.createdAt,
     };
   }

@@ -1,16 +1,22 @@
 import ApplicationService from '../../common/application/application-service';
-import Playlist from '../../domain/playlist/playlist';
 import GetPlaylistResponse from './get-playlist-response';
 import GetPlaylistCommand from './get-playlist-command';
+import { Inject } from '@nestjs/common';
+import PlaylistRepository from '../../domain/playlist/playlist-repository';
+import Playlist from '../../domain/playlist/playlist';
 
 class GetPlaylists implements ApplicationService {
-  execute(command: GetPlaylistCommand): GetPlaylistResponse {
-    const playlist = Playlist.create({
-      name: 'test',
-      genre: command.genre,
-    });
+  constructor(
+    @Inject('PlaylistRepository')
+    private readonly playlistRepository: PlaylistRepository,
+  ) {}
 
-    return GetPlaylistResponse.create(playlist);
+  async execute(command: GetPlaylistCommand): Promise<GetPlaylistResponse> {
+    const playlists: Playlist[] = await this.playlistRepository.find(
+      command.genre,
+    );
+
+    return GetPlaylistResponse.create(playlists);
   }
 }
 
