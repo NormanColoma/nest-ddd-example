@@ -1,6 +1,7 @@
-import DomainEntity from '../../common/domain/domain-entity';
+import PlaylistCreatedEvent from './events/playlist-created';
+import AggregateRoot from '../../shared/domain/aggregate-root';
 
-class Playlist extends DomainEntity {
+class Playlist extends AggregateRoot {
   private _name: string;
   private _favorite: boolean;
   private _genre: string;
@@ -29,7 +30,27 @@ class Playlist extends DomainEntity {
     favorite?: boolean;
     genre: string;
   }): Playlist {
-    return new Playlist({ name, favorite, genre });
+    const playlist = new Playlist({ name, favorite, genre });
+    playlist.addEvent(PlaylistCreatedEvent.create(playlist));
+    return playlist;
+  }
+
+  public static build({
+    name,
+    favorite,
+    genre,
+  }: {
+    id: string;
+    name: string;
+    favorite?: boolean;
+    genre: string;
+    createdAt: Date;
+  }): Playlist {
+    const playlist = new Playlist({ name, favorite, genre });
+    playlist.id = playlist.id;
+    playlist.createdAt = playlist.createdAt;
+
+    return playlist;
   }
 
   public get name(): string {
@@ -58,11 +79,10 @@ class Playlist extends DomainEntity {
 
   public toPrimitives(): object {
     return {
-      id: this.id,
+      ...super.toPrimitives(),
       name: this.name,
       favorite: this.favorite,
       genre: this.genre,
-      createdAt: this.createdAt,
     };
   }
 }

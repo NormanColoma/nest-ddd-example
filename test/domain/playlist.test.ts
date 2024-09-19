@@ -1,4 +1,4 @@
-import Playlist from '../../domain/playlist/playlist';
+import Playlist from '../../src/domain/playlist/playlist';
 
 const uuid = '1f12349d-4ff3-4da3-9134-8132fafe5d8a';
 const mockedDate = new Date();

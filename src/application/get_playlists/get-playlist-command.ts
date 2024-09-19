@@ -1,4 +1,4 @@
-import ApplicationCommand from '../../common/application/application-command';
+import ApplicationCommand from '../../shared/application/application-command';
 
 class GetPlaylistCommand implements ApplicationCommand {
   private readonly _genre: string;

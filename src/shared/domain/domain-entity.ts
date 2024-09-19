@@ -12,7 +12,7 @@ abstract class DomainEntity {
     return this._id;
   }
 
-  set id(id: string) {
+  protected set id(id: string) {
     this._id = id;
   }
 
@@ -20,7 +20,7 @@ abstract class DomainEntity {
     return this._createdAt;
   }
 
-  set createdAt(date: Date) {
+  protected set createdAt(date: Date) {
     this._createdAt = date;
   }
 

@@ -1,6 +1,5 @@
-import ApplicationResponse from '../../common/application/application-response';
+import ApplicationResponse from '../../shared/application/application-response';
 import Playlist from '../../domain/playlist/playlist';
-
 
 class GetPlaylistResponse implements ApplicationResponse {
   private constructor(private readonly playlist: Playlist[]) {}

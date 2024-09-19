@@ -56,7 +56,7 @@
       "json",
       "ts"
     ],
-    "rootDir": "src/test/",
+    "rootDir": "test/",
     "testRegex": ".*\\.test\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
