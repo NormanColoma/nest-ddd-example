@@ -3,7 +3,7 @@ import { PlaylistController } from './infrastructure/rest/http/playlist.controll
 import GetPlaylists from './application/get_playlists/get-playlists';
 import MongoPlaylistRepository from './infrastructure/persistence/mongo/mongo-playlist-repository';
 import MongoParser from './infrastructure/persistence/mongo/mongo-parser';
-import { ApiResponseParser } from './shared/infrastructure/rest/http/api-response';
+import {ApiResponseParser, ErrorResponseParser} from './shared/infrastructure/rest/http/api-response';
 
 @Module({
   providers: [
