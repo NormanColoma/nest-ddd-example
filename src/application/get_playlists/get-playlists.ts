@@ -12,11 +12,6 @@ class GetPlaylists implements ApplicationService {
   ) {}
 
   async execute(command: GetPlaylistCommand): Promise<GetPlaylistResponse> {
-    const playlist = Playlist.create({
-      name: 'Test',
-      favorite: false,
-      genre: 'Test',
-    });
     const playlists: Playlist[] = await this.playlistRepository.find(
       command.genre,
     );

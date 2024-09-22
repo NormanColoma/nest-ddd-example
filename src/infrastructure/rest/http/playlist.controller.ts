@@ -15,7 +15,7 @@ export class PlaylistController {
   ) {}
 
   @Get()
-  async getHello(): Promise<ApiResponse> {
+  async getPlaylist(): Promise<ApiResponse> {
     const command: GetPlaylistCommand = new GetPlaylistCommand('rap');
     const response: GetPlaylistResponse =
       await this.appService.execute(command);

@@ -15,7 +15,6 @@ class AggregateRoot extends DomainEntity {
   }
 
   public addEvent(event: DomainEvent): void {
-    console.log('event', event.toPrimitives());
     this._events.push(event);
   }
 
